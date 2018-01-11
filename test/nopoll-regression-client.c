@@ -1022,8 +1022,8 @@ nopoll_bool test_04c (void) {
 			}
 
 			if (bytes_written != length) {
-				printf ("ERROR: Failed to flush bytes read from file %d, bytes written were=%d (errno=%d : %s, pending bytes: %d, total bytes: %d)..\n",
-					length, bytes_written, errno, strerror (errno), nopoll_conn_pending_write_bytes (conn), total_bytes);
+				printf ("ERROR: Failed to flush bytes read from file %d, bytes written were=%d, bytes written after flushing=%d (errno=%d : %s, pending bytes: %d, total bytes: %d)..\n",
+					length, bytes_written_orig, bytes_written, errno, strerror (errno), nopoll_conn_pending_write_bytes (conn), total_bytes);
 				
 				return nopoll_false;
 			} /* end if */
